@@ -1,0 +1,15 @@
+{
+  "name": "the_forge",
+  "version": "1.0.0",
+  "description": "website for sean imams The Forge web software business",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sean Imam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "hbs": "^4.0.0"
+  }
+}

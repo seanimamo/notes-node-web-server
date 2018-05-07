@@ -94,8 +94,15 @@ app.get('/about', (req,res) =>{
 app.get('/bad', (req,res) =>{
     res.send({
       errorMessage : 'Error handling this request'
-    })
-    
+    })    
+});
+
+//page that displays a list of all the projects ive created
+app.get("/projects", (req,res) =>{
+    res.render('projects.hbs',{
+        pageTitle: 'Projects page',
+        welcomeMessage: 'Here are a list of my projects'
+    });
 });
 
 // this binds the application to a port on our machine. Note that we use our port variable for this instead

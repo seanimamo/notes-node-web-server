@@ -3,6 +3,10 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+//process.env is the way we access environmental variables. proces.env.PORT is what a service such as heroku would need to start our application.
+//this variable does not exist on local machines however, so we make this default to 3000 in the case that process.env.PORT does not exist
+const port = process.env.PORT || 3000;
+
 //this tells hbs where to look to find our partial template files such as the header and footer
 hbs.registerPartials(__dirname + '/views/partials');
 
@@ -94,9 +98,11 @@ app.get('/bad', (req,res) =>{
     
 });
 
-//this binds the application to a port on our machine.
-//this also takes another optional arguement in the form of a function where we can do whatever we want.
-app.listen(3000, () =>{
-    console.log(`Server is up and running on port 3000`);
+// this binds the application to a port on our machine. Note that we use our port variable for this instead
+// because it makes it dynamic in the case that we deploy our application to a service like heroku.
+// this also takes another optional arguement in the form of a function where we can do whatever we want.
+
+app.listen(port, () =>{
+    console.log(`Server is up and running on port ${port}`);
 });
 
